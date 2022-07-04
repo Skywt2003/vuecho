@@ -1,0 +1,35 @@
+<template>
+  <div id="app">
+    <nav-bar :title="title" :avatar="avatar" :links="pageList"></nav-bar>
+    <div class="container mt-4">
+      <router-view></router-view>
+    </div>
+  </div>
+</template>
+
+<script>
+import NavBar from "./components/NavBar.vue";
+
+export default {
+  name: "App",
+  components: {
+    NavBar
+  },
+  data() {
+    return {
+      title: "SkyVue",
+      avatar: "https://blog.skywt.cn/usr/themes/Daydream/assets/img/avatar.png",
+      pageList: [
+        {id: 0, title: "Archive", url: "/archives"},
+        {id: 1, title: "friends", url: "/friends"}
+      ],
+    }
+  }
+}
+</script>
+
+<style lang="less">
+.container {
+  max-width: 720px !important;
+}
+</style>
