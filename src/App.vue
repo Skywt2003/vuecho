@@ -35,4 +35,8 @@ export default {
 .container {
   max-width: 720px !important;
 }
+
+hr {
+  opacity: 0.1 !important;
+}
 </style>

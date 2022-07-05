@@ -7,15 +7,15 @@
       </section>
       <hr>
     </template>
-    <!-- <nav aria-label="Page navigation">
+    <nav aria-label="Page navigation" class="shadow">
       <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" :class="{'disabled':(page==1)}" @click="navTo(page-1)">Previous</a></li>
         <li v-for="i in pages" :key="i" class="page-item">
-          <a class="page-link" :class="{'active':(i==page)}" href="#">{{i}}</a>
+          <a class="page-link" :class="{'active':(i==page)}" @click="navTo(i)">{{i}}</a>
         </li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        <li class="page-item"><a class="page-link" :class="{'disabled':(page==pages)}" @click="navTo(page+1)">Next</a></li>
       </ul>
-    </nav> -->
+    </nav>
 </template>
 
 <script>
@@ -126,6 +126,10 @@ export default {
       .catch(function (error) {
         console.log(error);
       });
+    },
+    navTo(x){
+      this.page = x;
+      this.getPostList();
     }
   }
 }
@@ -140,5 +144,4 @@ section {
     }
   }
 }
-
 </style>
