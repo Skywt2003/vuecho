@@ -4,16 +4,19 @@
     <div class="container mt-4">
       <router-view></router-view>
     </div>
+    <AppFooter :title="title"></AppFooter>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
   name: "App",
   components: {
-    NavBar
+    NavBar,
+    AppFooter
   },
   data() {
     return {
