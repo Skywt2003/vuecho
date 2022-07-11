@@ -11,6 +11,7 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import AppFooter from "./components/AppFooter.vue";
+const config = require('./config');
 
 export default {
   name: "App",
@@ -20,13 +21,9 @@ export default {
   },
   data() {
     return {
-      title: "SkyVue",
-      avatar: "https://blog.skywt.cn/usr/themes/Daydream/assets/img/avatar.png",
-      pageList: [
-        {id: 0, title: "Archive", url: "/archives"},
-        {id: 1, title: "Friends", url: "/page/friends"},
-        {id: 2, title: "About", url: "/page/about"}
-      ],
+      title: config.default.title,
+      avatar: config.default.avatar,
+      pageList: config.default.pageList
     }
   }
 }

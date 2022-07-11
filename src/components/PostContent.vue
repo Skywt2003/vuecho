@@ -9,6 +9,7 @@
 
 <script>
 import axios from 'axios'
+const config = require('../config');
 
 export default {
   name: 'PostContent',
@@ -88,7 +89,7 @@ export default {
   methods: {
     getPost(){
       var _this = this;
-      axios.get('https://blog.skywt.cn/api/post', {
+      axios.get(config.default.url + '/post', {
         params: {
           slug: this.$route.params.slug
         }

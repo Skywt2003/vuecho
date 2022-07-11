@@ -18,11 +18,6 @@
 <script>
 export default {
   name: "NavBar",
-  props: ['title', 'avatar', 'links'],
-  data() {
-    return {
-      // avatar: 
-    }
-  }
+  props: ['title', 'avatar', 'links']
 }
 </script>

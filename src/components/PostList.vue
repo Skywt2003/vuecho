@@ -20,6 +20,7 @@
 
 <script>
 import axios from 'axios'
+const config = require('../config');
 
 export default {
   name: "PostList",
@@ -110,7 +111,7 @@ export default {
   methods: {
     getPostList(){
       var _this = this;
-      axios.get('https://blog.skywt.cn/api/posts', {
+      axios.get(config.default.url + '/posts', {
         params: {
           page: this.page,
           pageSize: this.pageSize,
