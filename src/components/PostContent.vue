@@ -82,6 +82,9 @@ export default {
   created(){
     this.getPost();
   },
+  updated(){
+    this.getPost();
+  },
   methods: {
     getPost(){
       var _this = this;

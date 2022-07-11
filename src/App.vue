@@ -24,7 +24,8 @@ export default {
       avatar: "https://blog.skywt.cn/usr/themes/Daydream/assets/img/avatar.png",
       pageList: [
         {id: 0, title: "Archive", url: "/archives"},
-        {id: 1, title: "friends", url: "/friends"}
+        {id: 1, title: "Friends", url: "/page/friends"},
+        {id: 2, title: "About", url: "/page/about"}
       ],
     }
   }
