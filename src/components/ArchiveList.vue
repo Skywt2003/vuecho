@@ -1,12 +1,14 @@
 <template>
-  <ul>  
-    <!-- 使用 template 修正 v-for 和 v-if 的优先级问题 -->
-    <template v-for="postItem in postList" :key="postItem.cid">
-      <li v-if="!isEmpty(postItem.title)" class="mt-3 mb-3">
-        <a :href="postItem.url">{{postItem.title}}</a>
-      </li>
-    </template>
-  </ul>
+  <div class="container">
+    <ul>
+      <!-- 使用 template 修正 v-for 和 v-if 的优先级问题 -->
+      <template v-for="postItem in postList" :key="postItem.cid">
+        <li v-if="!isEmpty(postItem.title)">
+          <router-link :to="'/post/'+postItem.slug">{{postItem.title}}</router-link>
+        </li>
+      </template>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -125,6 +127,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-</style>

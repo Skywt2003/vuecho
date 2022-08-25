@@ -11,17 +11,7 @@
 - Vue.js
 - Vue-router.js
 - axios
-- Bootstrap5
-- Sass
-
-## Todo
-
-- [x] Footer
-- [ ] 「加载中」插件
-- [x] PostList 底部 pagination
-- [x] config 配置文件独立
-- [ ] Typecho 插件二次渲染问题
-- [ ] 图片灯箱、KaTeX 等原博客功能
+- Tailwind CSS
 
 ## Setup
 

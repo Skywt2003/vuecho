@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import './index.css';
 
 import App from './App.vue';
 import PostList from './components/PostList.vue';
@@ -9,9 +10,10 @@ import PostContent from './components/PostContent.vue';
 
 const routes = [
     {path: '/', component: PostList},
+    {path: '/page/:num', component: PostList},
     {path: '/archives', component: ArchiveList},
+    {path: '/:slug', component: PostContent},
     {path: '/post/:slug', component: PostContent},
-    {path: '/page/:slug', component: PostContent},
 ]
 
 const router = createRouter({

@@ -1,9 +1,12 @@
 <template>
-  <article>
-    <img v-if="item.fields.headPic.value != ''" :src="item.fields.headPic.value" :alt="item.title" :title="item.title" class="mt-2 mb-2" />
+  <article class="container">
+    <img v-if="item.fields.headPic.value != ''" :src="item.fields.headPic.value" :alt="item.title" :title="item.title"/>
     <h1 v-html="item.title"></h1>
     <hr>
     <div v-html="item.text"></div>
+    <hr>
+    <p>🚧 评论区正在开发中，暂不开放。</p>
+    <hr>
   </article>
 </template>
 
@@ -104,16 +107,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import '~bootstrap/scss/bootstrap';
-
-article {
-  img {
-    @extend .img-fluid;
-    @extend .shadow;
-    @extend .rounded
-  }
-}
-
-</style>

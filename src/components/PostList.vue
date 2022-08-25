@@ -1,21 +1,27 @@
 <template>
+  <div class="container">
     <template v-for="postItem in postList" :key="postItem.cid" >
-      <section class="mt-3 mb-3">
-        <img v-if="postItem.fields.headPic.value != ''" :src="postItem.fields.headPic.value" :alt="postItem.title" :title="postItem.title" class="mt-2 mb-2 shadow img-fluid rounded" />
-        <h2><router-link :to="'/post/'+postItem.slug" v-html="postItem.title"></router-link></h2>
+      <section>
+        <img v-if="postItem.fields.headPic.value != ''" :src="postItem.fields.headPic.value" :alt="postItem.title" :title="postItem.title" />
+        <h2>
+          <router-link
+            class="no-underline"
+            :to="'/post/'+postItem.slug"
+            v-html="postItem.title"></router-link>
+        </h2>
         <p v-html="postItem.digest"></p>
       </section>
       <hr>
     </template>
-    <nav aria-label="Page navigation" class="shadow">
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" :class="{'disabled':(page==1)}" @click="navTo(page-1)">Previous</a></li>
-        <li v-for="i in pages" :key="i" class="page-item">
-          <a class="page-link" :class="{'active':(i==page)}" @click="navTo(i)">{{i}}</a>
-        </li>
-        <li class="page-item"><a class="page-link" :class="{'disabled':(page==pages)}" @click="navTo(page+1)">Next</a></li>
-      </ul>
-    </nav>
+    <div class="flex justify-between">
+      <router-link class="" v-if="page!=1" :to="(page-1==1)?'/':('/page/'+String(page-1))">Previous</router-link>
+      <a class="text-gray-500 hover:text-gray-500 no-underline" v-if="page==1">Previous</a>
+      <p>Page {{page}} / {{pages}}</p>
+      <router-link class="" v-if="page!=pages" :to="'/page/'+String(page+1)">Next</router-link>
+      <a class="text-gray-500 hover:text-gray-500 no-underline" v-if="page==pages">Next</a>
+    </div>
+    <hr>
+  </div>
 </template>
 
 <script>
@@ -106,6 +112,11 @@ export default {
     }
   },
   created() {
+    this.page = Number(this.$route.params.num) || 1;
+    this.getPostList();
+  },
+  updated() {
+    this.page = Number(this.$route.params.num) || 1;
     this.getPostList();
   },
   methods: {
@@ -127,22 +138,7 @@ export default {
       .catch(function (error) {
         console.log(error);
       });
-    },
-    navTo(x){
-      this.page = x;
-      this.getPostList();
     }
   }
 }
 </script>
-
-<style lang="scss">
-section {
-  h2 {
-    a {
-      color: inherit;
-      text-decoration: inherit;
-    }
-  }
-}
-</style>
